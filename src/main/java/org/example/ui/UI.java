@@ -63,16 +63,20 @@ public class UI {
 
     }
 
-    public synchronized void setSliderValue(int value) {
+//    public synchronized void setSliderValue(int value) {
+//
+//        jSlider.setValue(value);
+//
+//    }
+//
+//    public synchronized int getSliderValue() {
+//
+//        return jSlider.getValue();
+//
+//    }
 
-        jSlider.setValue(value);
-
-    }
-
-    public synchronized int getSliderValue() {
-
-        return jSlider.getValue();
-
+    public synchronized void updateSliderValue(int value) {
+        this.jSlider.setValue(this.jSlider.getValue() + value);
     }
 
     public Object getSliderLock() {

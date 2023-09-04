@@ -19,12 +19,14 @@ public class MyRun implements Runnable{
     public void run() {
         while (!Thread.interrupted()){
 
-            this.ui.setSliderValue(this.ui.getSliderValue() + changeval);
+            //this.ui.setSliderValue(this.ui.getSliderValue() + changeval);
+
+            this.ui.updateSliderValue(changeval);
 
 //           System.out.println("Working on " + Thread.currentThread().getName());
 //
             try {
-                Thread.sleep(100);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

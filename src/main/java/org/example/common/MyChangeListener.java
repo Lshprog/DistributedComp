@@ -6,7 +6,7 @@ import javax.swing.event.ChangeListener;
 
 public class MyChangeListener implements ChangeListener {
 
-    private Thread thread;
+    private final Thread thread;
 
     public MyChangeListener(Thread thread) {
         this.thread = thread;
