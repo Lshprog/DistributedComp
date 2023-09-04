@@ -19,11 +19,9 @@ public class MyRun implements Runnable{
     public void run() {
         while (!Thread.interrupted()){
 
-            synchronized (ui.getSliderLock()){
-                this.ui.setSliderValue(this.ui.getSliderValue() + changeval);
-            }
+            this.ui.setSliderValue(this.ui.getSliderValue() + changeval);
 
-//            System.out.println("Working on " + Thread.currentThread().getName());
+//           System.out.println("Working on " + Thread.currentThread().getName());
 //
             try {
                 Thread.sleep(100);
