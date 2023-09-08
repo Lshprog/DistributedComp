@@ -45,7 +45,7 @@ public class UI {
         this.jSpinner1 = new JSpinner(sm1);
         this.jSpinner2 = new JSpinner(sm2);
 
-        this.start = new JButton("Start!");
+        this.start = new JButton("Пуск");
 
         JPanel newPanel = new JPanel(new GridBagLayout());
         JPanel panel1 = new JPanel();
