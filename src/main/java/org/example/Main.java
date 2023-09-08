@@ -1,16 +1,19 @@
 package org.example;
 
+import org.example.common.MyActionListener;
 import org.example.common.MyChangeListener;
 import org.example.common.MyRun;
 import org.example.common.MyThread;
 import org.example.ui.UI;
 
 import javax.swing.event.ChangeListener;
+import java.awt.event.ActionListener;
 
 public class Main {
-    public static void main(String[] args) {
 
-        UI ui = new UI();
+    private static UI ui = new UI();
+
+    public static void main(String[] args) {
 
         MyThread thread1 = new MyThread(new MyRun(1, ui));
         MyThread thread2 = new MyThread(new MyRun(-1, ui));
@@ -23,8 +26,13 @@ public class Main {
 
         ui.setUiVisible();
 
-        thread1.start();
-        thread2.start();
+        ActionListener actionListener1 = new MyActionListener(thread1, thread2, '+');
+        //ActionListener actionListener2 = new MyActionListener(thread1, thread2, '-');
+
+        ui.setStartActionListener(actionListener1);
+
+//        thread1.start();
+//        thread2.start();
 
 
     }

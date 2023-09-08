@@ -26,7 +26,7 @@ public class MyRun implements Runnable{
 //           System.out.println("Working on " + Thread.currentThread().getName());
 //
             try {
-                Thread.sleep(10);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
