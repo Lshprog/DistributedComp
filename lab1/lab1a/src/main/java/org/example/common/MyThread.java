@@ -5,4 +5,8 @@ public class MyThread extends Thread{
         super(target);
     }
 
+    public MyThread(Runnable target, String s) {
+        super(target, s);
+    }
+
 }

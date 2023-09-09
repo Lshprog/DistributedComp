@@ -15,8 +15,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MyThread thread1 = new MyThread(new MyRun(1, ui));
-        MyThread thread2 = new MyThread(new MyRun(-1, ui));
+        MyThread thread1 = new MyThread(new MyRun(1, ui), "Thread 1");
+        MyThread thread2 = new MyThread(new MyRun(-1, ui), "Thread 2");
 
         ChangeListener changeListener1 = new MyChangeListener(thread1);
         ChangeListener changeListener2 = new MyChangeListener(thread2);

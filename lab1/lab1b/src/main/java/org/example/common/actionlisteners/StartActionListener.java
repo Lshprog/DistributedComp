@@ -25,11 +25,13 @@ public class StartActionListener implements ActionListener {
             MyThread myThread = Globals.sharedThreads.get(mythreadname);
             myThread = new MyThread(myThread.getRunnable(), myThread.getName());
             Globals.sharedThreads.put(myThread.getName(), myThread);
+
+            Globals.semaphore.set(1);
+            System.out.println("Займаємо");
+
             myThread.start();
             myThread.setPriority(this.priority);
-            Globals.semaphore.set(1);
 
-            System.out.println("Займаємо");
 
             if(myThread.getName().equals("Thread 1")){
                 Globals.ui.setStop1Enabled(true);
