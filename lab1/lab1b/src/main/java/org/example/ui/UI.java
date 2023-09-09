@@ -44,6 +44,11 @@ public class UI {
         this.stop1 = new JButton("СТОП 1");
         this.stop2 = new JButton("СТОП 2");
 
+        this.start1.setEnabled(true);
+        this.start2.setEnabled(true);
+        this.stop1.setEnabled(false);
+        this.stop2.setEnabled(false);
+
         JPanel newPanel = new JPanel(new GridBagLayout());
         JPanel panel1 = new JPanel();
         JPanel panel2 = new JPanel();
@@ -98,5 +103,22 @@ public class UI {
     public void setStartActionListenerStop2(ActionListener actionListener) {
         this.stop2.addActionListener(actionListener);
     }
+
+    public void setStart1Enabled(boolean status){
+        this.start1.setEnabled(status);
+    }
+
+    public void setStart2Enabled(boolean status){
+        this.start2.setEnabled(status);
+    }
+
+    public void setStop1Enabled(boolean status){
+        this.stop1.setEnabled(status);
+    }
+
+    public void setStop2Enabled(boolean status){
+        this.stop2.setEnabled(status);
+    }
+
 
 }

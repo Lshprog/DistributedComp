@@ -22,6 +22,12 @@ public class StopActionListener implements ActionListener {
             mythread.interrupt();
             Globals.semaphore.set(0);
             System.out.println("Звільняємо");
+
+            Globals.ui.setStop1Enabled(false);
+            Globals.ui.setStop2Enabled(false);
+            Globals.ui.setStart1Enabled(true);
+            Globals.ui.setStart2Enabled(true);
+
         }
         else if(Globals.semaphore.get() == 0){
             System.out.println("І так зупинено");

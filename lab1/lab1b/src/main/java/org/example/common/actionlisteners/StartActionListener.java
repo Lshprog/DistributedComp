@@ -27,9 +27,20 @@ public class StartActionListener implements ActionListener {
             Globals.sharedThreads.put(myThread.getName(), myThread);
             myThread.start();
             myThread.setPriority(this.priority);
-
             Globals.semaphore.set(1);
+
             System.out.println("Займаємо");
+
+            if(myThread.getName().equals("Thread 1")){
+                Globals.ui.setStop1Enabled(true);
+                Globals.ui.setStop2Enabled(false);
+                Globals.ui.setStart2Enabled(false);
+            }
+            else {
+                Globals.ui.setStop1Enabled(false);
+                Globals.ui.setStop2Enabled(true);
+                Globals.ui.setStart1Enabled(false);
+            }
         }
         else{
             System.out.println("Зайнято потоком");
