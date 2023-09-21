@@ -10,7 +10,7 @@ public class Globals {
 
     public static AtomicBoolean bear_found = new AtomicBoolean(false);
 
-    public static Integer[][] woods = new Integer[4][4];
+    public static Integer[][] woods = new Integer[8][8];
 
     static {
         for (Integer[] wood : woods) {
@@ -18,6 +18,6 @@ public class Globals {
         }
     }
 
-    public static BlockingQueue<Integer[]> area_queue = new ArrayBlockingQueue<>(4);
+    public static BlockingQueue<Integer[]> area_queue = new ArrayBlockingQueue<>(16);
 
 }

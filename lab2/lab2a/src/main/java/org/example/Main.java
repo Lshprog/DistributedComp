@@ -15,18 +15,11 @@ public class Main {
 
         Globals.woods[1][2] = 1;
 
-        Integer[] area1 = new Integer[]{0, 1, 0, 1};
-        Integer[] area2 = new Integer[]{2, 3, 0, 1};
-        Integer[] area3 = new Integer[]{0, 1, 2, 3};
-        Integer[] area4 = new Integer[]{2, 3, 2, 3};
-
-        try {
-            Globals.area_queue.put(area1);
-            Globals.area_queue.put(area2);
-            Globals.area_queue.put(area3);
-            Globals.area_queue.put(area4);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
+        for (int i = 0; i < 8; i += 2) {
+            for (int j = 0; j < 8; j += 2) {
+                Integer[] smallArea = new Integer[]{i, i + 1, j, j + 1};
+                Globals.area_queue.add(smallArea);
+            }
         }
 
         ExecutorService executor = Executors.newFixedThreadPool(3);
