@@ -6,6 +6,7 @@ import org.example.common.Task;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
 
 public class Main {
 
@@ -13,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
-        Globals.woods[1][2] = 1;
+        Globals.woods[0][0] = 1;
 
         for (int i = 0; i < 8; i += 2) {
             for (int j = 0; j < 8; j += 2) {
@@ -23,10 +24,26 @@ public class Main {
         }
 
         ExecutorService executor = Executors.newFixedThreadPool(3);
+        Lock readLock = Globals.lock.readLock();
 
-        while (!Globals.bear_found.get() && !Globals.area_queue.isEmpty()) {
-            executor.execute(new Task());
+        while (true) {
+            try {
+                readLock.lock();
+                if (!Globals.bear_found.get() && !Globals.area_queue.isEmpty()) {
+                    Integer[] intTask = Globals.getFirst();
+                    if (intTask != null) {
+                        executor.execute(new Task(intTask));
+                    } else {
+                        break;
+                    }
+                } else {
+                    break;
+                }
+            } finally {
+                readLock.unlock();
+            }
         }
+
 
         executor.shutdown();
 
