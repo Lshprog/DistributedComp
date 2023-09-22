@@ -21,7 +21,7 @@ public class Task implements Runnable {
                     Lock writeLock = Globals.lock.writeLock();
                     try {
                         writeLock.lock();
-                        Globals.bear_found.set(true);
+                        Globals.bear_found = true;
                     } finally {
                         writeLock.unlock();
                     }

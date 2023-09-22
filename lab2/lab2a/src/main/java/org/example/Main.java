@@ -31,7 +31,7 @@ public class Main {
             if (Globals.availableThreadCount.get() > 0) {
                 try {
                     readLock.lock();
-                    if (!Globals.bear_found.get() && !Globals.area_queue.isEmpty()) {
+                    if (!Globals.bear_found && !Globals.area_queue.isEmpty()) {
                         //System.out.println(Globals.bear_found.get());
                         Integer[] intTask = Globals.getFirst();
                         if (intTask != null) {
@@ -62,7 +62,7 @@ public class Main {
         }
 
 
-        if (Globals.bear_found.get()) {
+        if (Globals.bear_found) {
             System.out.println("Bear found!");
         } else {
             System.out.println("Bear not found.");

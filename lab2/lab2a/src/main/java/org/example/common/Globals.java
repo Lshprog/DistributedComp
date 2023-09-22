@@ -13,9 +13,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class Globals {
-
-    public static AtomicBoolean bear_found = new AtomicBoolean(false);
-
+    public static boolean bear_found = false;
     public static AtomicInteger availableThreadCount = new AtomicInteger(3);
 
     public static Integer[][] woods = new Integer[8][8];
