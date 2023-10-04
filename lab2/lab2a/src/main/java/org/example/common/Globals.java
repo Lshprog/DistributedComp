@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
@@ -13,10 +14,10 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class Globals {
-    public static boolean bear_found = false;
-    public static AtomicInteger availableThreadCount = new AtomicInteger(3);
+    public static AtomicBoolean bear_found = new AtomicBoolean(false);
+    public static Semaphore semaphore = new Semaphore(3, true);
 
-    public static Integer[][] woods = new Integer[8][8];
+    public static Integer[][] woods = new Integer[16][16];
 
     static {
         for (Integer[] wood : woods) {
@@ -24,7 +25,7 @@ public class Globals {
         }
     }
 
-    public static ArrayList<Integer[]> area_queue = new ArrayList<>(16);
+    public static ArrayList<Integer[]> area_queue = new ArrayList<>(64);
 
     public static Integer[] getFirst() {
         if (!area_queue.isEmpty()) {
